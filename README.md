@@ -30,9 +30,7 @@ dokku apps:destroy sonarqube --force
 # Dokku port commands
 
 ```
-ports:list <app>                        # List port mappings for an app
-ports:add <app> <scheme>:<host-port>:<container-port> [<scheme>:<host-port>:<container-port>...]           # Add port mappings to an app
-ports:clear <app>                       # Clear all port mappings for an app
-ports:remove <app> <host-port> [<host-port>|<scheme>:<host-port>:<container-port>...]                      # Remove specific port mappings from an app
-ports:set <app> <scheme>:<host-port>:<container-port> [<scheme>:<host-port>:<container-port>...]           # Set port mappings for an app
+dokku ports:report sonarqube
+dokku ports:set sonarqube http:80:5000
 ```
+

@@ -5,7 +5,16 @@ FROM sonarqube:lts-community
 VOLUME /opt/sonarqube/data
 VOLUME /opt/sonarqube/extensions
 
+
+ENV SONAR_PORT=5000
+
+# The ENTRYPOINT script of the original image might not accept an env var for the port
+# so we must modify the configuration file directly
+# USER root
+# RUN sed -i "s/^sonar\.web\.port=.*/sonar.web.port=${SONAR_PORT}/" /opt/sonarqube/conf/sonar.properties
+# USER sonarqube
+
+
 # The Docker image will automatically pull the database setup from DATABASE_URL
 # and use the default entry point.
 
-CMD ["java", "-jar", "sonar.jar", "-Dsonar.web.port=5000"]

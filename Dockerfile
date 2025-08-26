@@ -24,7 +24,7 @@ RUN export SONAR_JDBC_PASSWORD=$(echo "$DATABASE_URL" | cut --delimiter=: -f3 | 
 # to run in a non-root environment. This check is disabled by default
 # in the official image, but it's a critical setting to remember for
 # any self-hosted SonarQube instance.
-ENV SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+# ENV SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
 
 # This is the command that will be run when the container starts.
 # It simply executes the default SonarQube server startup script.

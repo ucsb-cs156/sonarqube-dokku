@@ -18,3 +18,11 @@ These may or may not work:
 dokku letsencrypt:set sonar email yourEmail@ucsb.edu
 dokku letsencrypt:enable sonar
 ```
+
+# Removing so you can start over
+
+```
+dokku postgres:unlink sonar-db sonar --no-restart
+dokku postgres:destroy sonar-db --force
+dokku apps:destroy sonar --force
+```

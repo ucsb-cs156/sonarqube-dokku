@@ -14,34 +14,27 @@ dokku postgres:link  sq-db sq --no-restart
 dokku git:sync sq https://github.com/ucsb-cs156/sonarqube-dokku main --build
 ```
 
-With name sonarqube:
+# Removing so you can start over
+
 ```
-dokku apps:create sonarqube
-dokku config:set sonarqube --no-restart SONAR_WEB_PORT=5000
-dokku postgres:create sonarqube-db
-dokku postgres:link  sonarqube-db sonarqube --no-restart
-dokku git:sync sonarqube https://github.com/ucsb-cs156/sonarqube-dokku main --build
+dokku postgres:unlink sq-db sonarqube --no-restart
+dokku postgres:destroy sq-db --force
+dokku apps:destroy sq --force
 ```
 
 These may or may not work:
 
 ```
-dokku letsencrypt:set sonarqube email yourEmail@ucsb.edu
-dokku letsencrypt:enable sonarqube
+dokku letsencrypt:set sq email phtcon@ucsb.edu
+dokku letsencrypt:enable sq
 ```
 
-# Removing so you can start over
 
-```
-dokku postgres:unlink sonarqube-db sonarqube --no-restart
-dokku postgres:destroy sonarqube-db --force
-dokku apps:destroy sonarqube --force
-```
 
 # Dokku port commands
 
 ```
 dokku ports:report sonarqube
-dokku ports:set sonarqube http:80:5000
+dokku ports:set sonarqube http:80:9000
 ```
 

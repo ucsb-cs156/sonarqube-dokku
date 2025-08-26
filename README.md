@@ -12,7 +12,7 @@ dokku apps:create sq
 dokku config:set sq --no-restart SONAR_WEB_PORT=5000
 dokku postgres:create sq-db
 dokku postgres:link  sq-db sq --no-restart
-dokku git:sync sq https://github.com/ucsb-cs156/sq-dokku main --build
+dokku git:sync sq https://github.com/ucsb-cs156/sonarqube-dokku main --build
 ```
 
 With name sonarqube:

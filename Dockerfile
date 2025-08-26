@@ -2,7 +2,7 @@
 FROM sonarqube:lts-community
 
 # Expose the default SonarQube web port
-EXPOSE 5000
+EXPOSE 9000
 
 # Set volumes for persistence
 VOLUME /opt/sonarqube/data

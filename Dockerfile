@@ -16,9 +16,9 @@ VOLUME /opt/sonarqube/extensions
 # Dokku's PostgreSQL plugin automatically sets these environment variables.
 # You don't need to put values here; Dokku will inject them at runtime.
 
-ENV SONAR_JDBC_URL=jdbc:postgresql://$(echo "$DATABASE_URL" | cut --delimiter=\@ -f2)
+RUN export SONAR_JDBC_URL=jdbc:postgresql://$(echo "$DATABASE_URL" | cut --delimiter=\@ -f2)
 ENV SONAR_JDBC_USERNAME=postgres
-ENV SONAR_JDBC_PASSWORD=$(echo "$DATABASE_URL" | cut --delimiter=: -f3 | cut --delimiter=\@ -f1)
+RUN export SONAR_JDBC_PASSWORD=$(echo "$DATABASE_URL" | cut --delimiter=: -f3 | cut --delimiter=\@ -f1)
 
 # SonarQube requires a specific setting for Elasticsearch on Docker
 # to run in a non-root environment. This check is disabled by default

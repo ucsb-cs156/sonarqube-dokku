@@ -1,5 +1,5 @@
 # Use the official SonarQube image as the base
-FROM sonarqube:lts-community
+FROM sonarqube:9.9.8-community
 
 # Set volumes for persistence
 VOLUME /opt/sonarqube/data

@@ -17,7 +17,7 @@ dokku git:sync sq https://github.com/ucsb-cs156/sonarqube-dokku main --build
 # Removing so you can start over
 
 ```
-dokku postgres:unlink sq-db sonarqube --no-restart
+dokku postgres:unlink sq-db sq --no-restart
 dokku postgres:destroy sq-db --force
 dokku apps:destroy sq --force
 ```

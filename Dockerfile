@@ -6,12 +6,15 @@ VOLUME /opt/sonarqube/data
 VOLUME /opt/sonarqube/extensions
 
 
+EXPOSE 5000
+
 # The ENTRYPOINT script of the original image might not accept an env var for the port
 # so we must modify the configuration file directly
 USER root
-RUN echo "sonar.web.port=5000" >> /opt/sonarqube/conf/sonar.properties
+RUN echo "\nsonar.web.port=5000\n" >> /opt/sonarqube/conf/sonar.properties
 USER sonarqube
 
+RUN cat /opt/sonarqube/conf/sonar.properties
 
 # The Docker image will automatically pull the database setup from DATABASE_URL
 # and use the default entry point.

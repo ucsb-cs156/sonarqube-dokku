@@ -4,6 +4,18 @@ Files to set up SonarQube on Dokku
 
 # Dokku Setup
 
+
+With name sq:
+
+```
+dokku apps:create sq
+dokku config:set sq --no-restart SONAR_WEB_PORT=5000
+dokku postgres:create sq-db
+dokku postgres:link  sq-db sq --no-restart
+dokku git:sync sq https://github.com/ucsb-cs156/sq-dokku main --build
+```
+
+With name sonarqube:
 ```
 dokku apps:create sonarqube
 dokku config:set sonarqube --no-restart SONAR_WEB_PORT=5000

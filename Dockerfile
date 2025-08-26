@@ -12,6 +12,7 @@ ENV SONAR_PORT=5000
 # so we must modify the configuration file directly
 USER root
 RUN sed -i "s/^sonar\.web\.port=.*/sonar.web.port=${SONAR_PORT}/" /opt/sonarqube/conf/sonar.properties
+RUN cat /opt/sonarqube/conf/sonar.properties
 USER sonarqube
 
 

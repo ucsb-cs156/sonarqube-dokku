@@ -38,3 +38,6 @@ dokku ports:report sonarqube
 dokku ports:set sonarqube http:80:9000
 ```
 
+# SonarQube Links
+
+* [Documentation for 2025.1 Server](https://docs.sonarsource.com/sonarqube-server/2025.1/try-out-sonarqube/)
